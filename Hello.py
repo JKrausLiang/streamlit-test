@@ -21,12 +21,12 @@ project_name = st.text_input("Enter your project name:")
 author_name = st.text_input("Enter your name:")
 
 if st.button("Generate Project"):
-# Execute Cookiecutter with collected data
-subprocess.run([
-"cookiecutter",
-"https://github.com/audreyr/cookiecutter-pypackage.git",
-"--no-input", # Prevent standard prompts
-f"project_name={project_name}",
-f"author_name={author_name}"
-])
-st.success("Project generated successfully!")
+  # Execute Cookiecutter with collected data
+  subprocess.run([
+  "cookiecutter",
+  "https://github.com/audreyr/cookiecutter-pypackage.git",
+  "--no-input", # Prevent standard prompts
+  f"project_name={project_name}",
+  f"author_name={author_name}"
+  ])
+  st.success("Project generated successfully!")
