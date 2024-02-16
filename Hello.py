@@ -36,6 +36,3 @@ if st.button("Create Project"):
         st.success("Project Created")
     else:
         st.error("Please enter a project name")
-
-if __name__ == "__main__":
-    run()
