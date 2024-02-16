@@ -14,25 +14,19 @@
 
 import streamlit as st
 import subprocess
-import os
 
-# Function to run cookiecutter
-def run_cookiecutter(template_path, extra_args):
-    command = ["cookiecutter", template_path] + extra_args
-    subprocess.run(command, check=True)
+# Streamlit Interface
+st.title("Project Generator")
+project_name = st.text_input("Enter your project name:")
+author_name = st.text_input("Enter your name:")
 
-# Streamlit UI
-st.title("Project Initialization")
-
-# Collect inputs
-project_name = st.text_input("Project Name")
-other_parameter = st.text_input("Other Parameter")
-
-if st.button("Create Project"):
-    if project_name:
-        # Assuming you want to pass these as arguments to cookiecutter
-        args = ['--no-input', f'project_name={project_name}', f'other_parameter={other_parameter}']
-        run_cookiecutter('https://github.com/audreyr/cookiecutter-pypackage.git', args)
-        st.success("Project Created")
-    else:
-        st.error("Please enter a project name")
+if st.button("Generate Project"):
+# Execute Cookiecutter with collected data
+subprocess.run([
+"cookiecutter",
+"https://github.com/audreyr/cookiecutter-pypackage.git",
+"--no-input", # Prevent standard prompts
+f"project_name={project_name}",
+f"author_name={author_name}"
+])
+st.success("Project generated successfully!")
