@@ -32,7 +32,7 @@ if st.button("Create Project"):
     if project_name:
         # Assuming you want to pass these as arguments to cookiecutter
         args = ['--no-input', f'project_name={project_name}', f'other_parameter={other_parameter}']
-        run_cookiecutter('/path/to/cookiecutter-template', args)
+        run_cookiecutter('https://github.com/audreyr/cookiecutter-pypackage.git', args)
         st.success("Project Created")
     else:
         st.error("Please enter a project name")
